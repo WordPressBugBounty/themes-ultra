@@ -4,7 +4,7 @@ Contributors: Misplon
 
 Tags: one-column, two-columns, right-sidebar, custom-background, custom-menu, custom-logo, featured-images, footer-widgets, full-width-template, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce
 
-Tested up to: 6.4
+Tested up to: 6.9
 Requires at least: 4.7
 Requires PHP: 5.6.20
 License: GPLv2 or later
@@ -165,6 +165,11 @@ Licensed under the [MIT License](http://opensource.org/licenses/MIT)
 This theme makes use of the SiteOrigin Settings Framework contained in the /inc folder. All code is licensed under GPL 2.0 and copyright 2013 Greg Priday unless otherwise stated in the file header.
 
 == Changelog ==
+
+= 1.6.7 - 09 February 2026 =
+* Customizer: Fixed PHP 8 type error in settings priority calculation.
+* Customizer: Updated settings strings to use the theme text domain.
+* Updated Tested up to tag to 6.9.
 
 = 1.6.6 - 11 February 2023 =
 * Replaced Twitter with X icon.

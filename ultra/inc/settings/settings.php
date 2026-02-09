@@ -474,7 +474,7 @@ class SiteOrigin_Settings {
 			$i++;
 			$wp_customize->add_section( 'theme_settings_' . $id, array(
 				'title' => $args['title'],
-				'priority' => ( $i * 5 ) + 10,
+				'priority' => ( (int) $i * 5 ) + 10,
 				'panel' => 'theme_settings',
 			) );
 		}

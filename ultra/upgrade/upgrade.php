@@ -4,7 +4,7 @@ function ultra_premium_upgrade_content( $content ) {
 	$content['premium_title'] = esc_html__( 'Upgrade to Ultra Premium', 'ultra' );
 	$content['premium_summary'] = esc_html__( 'Hi, my name is Andrew Misplon, the developer of Ultra. If you\'ve enjoyed Ultra Free then I know you\'re going to love Ultra Premium. Below you\'ll find an outline of the premium features.', 'ultra' );
 
-	$content['buy_url'] = 'http://puro.fetchapp.com/sell/49b42a54';
+	$content['buy_url'] = 'https://puro.fetchapp.com/sell/49b42a54';
 	$content['premium_video_poster'] = get_template_directory_uri() . '/upgrade/poster.jpg';
 
 	$content['features'] = array();
