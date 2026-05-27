@@ -9,7 +9,7 @@
  * @license GPL 2.0
  */
 
-define( 'SITEORIGIN_THEME_VERSION' , '1.6.7' );
+define( 'SITEORIGIN_THEME_VERSION' , '1.6.8' );
 define( 'SITEORIGIN_THEME_ENDPOINT' , 'http://updates.purothemes.com' );
 define( 'SITEORIGIN_THEME_JS_PREFIX', defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '' : '.min' );
 
@@ -244,6 +244,7 @@ add_action( 'widgets_init', 'ultra_widgets_init' );
  */
 function ultra_scripts() {
 	$in_footer = siteorigin_setting( 'footer_js_enqueue' );
+	$theme_script_deps = array( 'jquery' );
 
 	// Theme stylesheet.
 	wp_enqueue_style( 'ultra-style', get_stylesheet_uri(), array(), SITEORIGIN_THEME_VERSION );
@@ -251,13 +252,15 @@ function ultra_scripts() {
 	// Font Awesome.
 	wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/font-awesome/css/font-awesome.min.css', array(), '4.7.0' );
 
-	// Theme JavaScript.
-	wp_enqueue_script( 'ultra-theme', get_template_directory_uri() . '/js/jquery.theme' . SITEORIGIN_THEME_JS_PREFIX . '.js', array( 'jquery' ), SITEORIGIN_THEME_VERSION, $in_footer );
-
 	// Sticky header.
 	if ( siteorigin_setting( 'header_sticky' ) ) {
-		wp_enqueue_script( 'jquery-hc-sticky', get_template_directory_uri() . '/js/jquery.hc-sticky.min.js', array( 'jquery' ), '2.2.6', $in_footer );
+		wp_enqueue_script( 'jquery-hc-sticky', get_template_directory_uri() . '/js/jquery.hc-sticky.min.js', array( 'jquery' ), '2.2.7', $in_footer );
+		wp_enqueue_script( 'hc-sticky-helpers', get_template_directory_uri() . '/js/hc-sticky.helpers.min.js', array( 'jquery-hc-sticky' ), '2.2.7', $in_footer );
+		$theme_script_deps[] = 'hc-sticky-helpers';
 	}
+
+	// Theme JavaScript.
+	wp_enqueue_script( 'ultra-theme', get_template_directory_uri() . '/js/jquery.theme' . SITEORIGIN_THEME_JS_PREFIX . '.js', $theme_script_deps, SITEORIGIN_THEME_VERSION, $in_footer );
 
 	// Mobile menu.
 	if ( siteorigin_setting( 'navigation_responsive_menu' ) ) {
